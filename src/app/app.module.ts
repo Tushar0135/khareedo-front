@@ -10,6 +10,12 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
 import { LoginComponent } from './login/login.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
+import {ItemserviceService} from './itemservice.service';
+import {AppService} from './app.service';
+import {AuthenticateService} from './authenticate.service';
 
 @NgModule({
   declarations: [
@@ -20,13 +26,16 @@ import { LoginComponent } from './login/login.component';
     ProductListComponent,
     SignUpComponent,
     UserCartComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ItemserviceService, AppService, AuthenticateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

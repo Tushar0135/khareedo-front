@@ -1,1 +1,35 @@
-<p>nav-bar works!</p>
+<div class="my-0">
+  <nav class="navbar navbar-collapse ml-5 my-0">
+    <a class="navbar-brand my-0 " style="font-family:'Brush Script Std',serif ;color: black" [routerLink]="['/home']">KHAREEDO</a>
+    <form class="form-inline my-0">
+      <input class="form-control mainLoginInput mr-sm-2" type="search" placeholder="&#xf002;&nbsp;&nbsp;Search"  aria-label="Search">
+    </form>
+    <ul class="d-flex list-unstyled my-0">
+      <li class="nav-item active">
+        <a class="nav-link"  style="color: black" href="#" ><i class="material-icons">
+          person
+        </i>
+          <div class="" style="font-size: 10px">Profile</div></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" style="color: black" (click)=mycart() >
+          <i class="material-icons">
+            shopping_cart
+          </i>
+          <div class="pl-1" style="font-size: 10px">
+            Cart
+          </div>
+        </a>
+      </li>
+      <li class="nav-item active mr-5">
+        <a class="nav-link"  style="color: black" (click)=logout()><i class="material-icons">
+          account_circle
+        </i>
+          <div class="mx-auto" style="font-size: 10px">Logout</div></a>
+      </li>
+    </ul>
+
+  </nav>
+</div>
+

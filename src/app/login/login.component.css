@@ -1,0 +1,9 @@
+
+.company-style
+{
+  font-family: 'Pacifico', cursive;
+}
+.spinner-grow{
+  animation: spinner-grow 10s linear infinite;
+
+}

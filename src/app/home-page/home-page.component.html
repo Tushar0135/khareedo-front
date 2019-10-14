@@ -1,1 +1,67 @@
-<p>home-page works!</p>
+<div class="border-bottom  my-0 " style="font-family:cursive ">
+  <ul class="nav nav-pills nav-fill d-flex justify-content-between " style="position: sticky">
+    <li class="nav-item">
+      <a class="nav-link " style="cursor: pointer;color: black"[routerLink]="['/home']"  >HOME</a>
+    </li>
+    <li class="nav-item">
+      <a (click)="showcategory('electronics')" class="nav-link" style="cursor: pointer" >ELECTRONICS</a>
+    </li>
+    <li class="nav-item">
+      <a (click)="showcategory('books')" class="nav-link " style="cursor: pointer" >BOOKS</a>
+    </li>
+    <li class="nav-item">
+      <a (click)="showcategory('shoes')" class="nav-link " style="cursor: pointer">SHOES</a>
+    </li>
+    <li class="nav-item">
+      <a (click)="showcategory('clothing')"class="nav-link " style="cursor: pointer">CLOTHINGS</a>
+    </li>
+  </ul>
+</div>
+<div style="background-color: lightgray">
+  <div class="d-flex">
+    <div class="w-25" style="border-right: 1px black solid">
+      <div class="mt-3 mb-3">
+        <h3 class="company-style text-danger text-center">Filter Items</h3>
+        <div class="card border-danger mt-3 mx-5 ">
+          <div class="card-body">
+            <h4 class="text-dark">PRICE</h4>
+            <div class="radio">
+              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,200,500)">200-500</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,500,1000)">500-1000</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,1000,2000)">1000-2000</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,1500,4000)">1500-4000</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,0,100000)">0-Maximum</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-75 m-4 my-2 d-flex flex-wrap">
+      <div *ngFor="let Detail of Names" class="m-2">
+        <div class="card border-dark" style="width:200px;height:320px">
+
+          <div class="mt-3 mx-auto">
+            <img height="100px" src="{{Detail.image}}">
+          </div>
+          <div class="card-body text-center">
+            <h6 class="card-title">{{Detail.name}}</h6>
+            <hr>
+            <div >${{Detail.price}}</div>
+            <a class="nav-link " style="cursor: pointer;color:black;">ADD TO CART</a>
+            <br>
+            <a style="cursor: pointer"[routerLink]="['/productDetails']" >ViewDetail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

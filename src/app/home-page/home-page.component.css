@@ -1,0 +1,8 @@
+.company-style
+{
+  font-family: 'Pacifico', cursive;
+}
+.sticky{
+  position: sticky;
+  top: 0
+}
