@@ -1,0 +1,25 @@
+.my-border {
+  border-right: 2px solid darkgrey;
+}
+
+.my-pointer {
+  cursor: pointer;
+}
+
+.my-pointer :hover {
+  background: #f1f1f1;
+}
+
+label {
+  font-weight: bold;
+}
+
+.my-form-control {
+  width: 20rem;
+}
+
+.btn {
+  width: 7rem;
+  background: #ff5d3b;
+  color: white;
+}

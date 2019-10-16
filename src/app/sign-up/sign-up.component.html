@@ -1,8 +1,31 @@
-<div class="signup-form">
-  <form>
-    <h1 class="company-style text-dark">Sign Up</h1>
-    <input type="email" placeholder="Email" class="txtb" name ="email" [(ngModel)]="email">
-    <input type="password" placeholder="Password" class="txtb" name="password" [(ngModel)]="password">
-    <input type="submit" value="Create Account" class="signup-btn" (click)="userData()">
-  </form>
+<div>
+  <div class="heading text-center">
+    <!--    <a routerLink='/home'>Shoppers Stop</a>-->
+    <a routerLink="/home"><img src=".\assets\shoppers_stop.png" routerLink="/home"></a>
+  </div>
+  <div class="d-flex flex-column align-items-center my-3">
+    <div class="form-box border">
+      <div class="sign-up-text">Sign Up</div>
+      <form>
+        <div class="form-group">
+          <label for="name" class="format-text">Full Name:</label>
+          <input id="name" class="form-control" type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" [required]="true">
+        </div>
+        <div class="form-group">
+          <label for="email" class="format-text">Email:</label>
+          <input id="email" class="form-control" type="email" [(ngModel)]="email" name="email" [required]="true">
+        </div>
+        <div class="form-group">
+          <label for="password" class="format-text">Password:</label>
+          <input id="password" class="form-control" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" [required]="true">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary w-100" (click)="signUp()">Sign Up</button>
+        </div>
+      </form>
+    </div>
+    <div class="format-text py-2">
+      Already have a account? <a routerLink="/login" class="text-decoration-none">Login</a> here
+    </div>
+  </div>
 </div>

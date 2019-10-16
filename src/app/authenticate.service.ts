@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {AppService} from './app.service';
 
 export class User {
   constructor(
@@ -14,33 +15,27 @@ export class User {
 })
 export class AuthenticateService {
 
-  constructor(private httpClient: HttpClient, private route: Router) { }
+  constructor(private http: HttpClient, private appService: AppService) {
+  }
 
-  authenticate(firstname, password) {
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(firstname + ':' + password) });
-    return this.httpClient.get('http://localhost:8080/users/get1', { headers }).pipe(
-      map(
-        userData => {
-          sessionStorage.setItem('token', btoa(firstname + ':' + password));
+  authenticate(username, password) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
+    return this.http.get('http://localhost:8080/user/login', {headers}).pipe(
+      map(data => {
+          this.appService.isAdmin(data);
+          localStorage.setItem('token', btoa(username + ':' + password));
         }
-      )
-
-    );
+      ));
   }
 
-  // sendnewuser(d) {
-  //   return this.httpClient.post('http://localhost:8080/users/Signup', d).subscribe((data) => {
-  //     this.route.navigate(['/userlogin']);
-  //
-  //   });
-  // }
-isUserLoggedIn() {
-    const user = sessionStorage.getItem('token');
-    console.log(!(user === null));
-    return !(user === null);
+  signOut() {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + localStorage.getItem('token')});
+    return this.http.get('http://localhost:8080/user/logout', {headers});
   }
 
-  logOut() {
-    sessionStorage.removeItem('firstname');
+  signUp(user) {
+    return this.http.post('http://localhost:8080/user/sign-up', user);
   }
+
 }
+

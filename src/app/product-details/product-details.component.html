@@ -1,32 +1,29 @@
-<div class="container" style="margin-top: 50px">
-  <div class="d-flex border-dark">
-    <div class="card">
-      <img src="{{list.image}}" style="width: 200px; height: 300px" class="mx-2">
-      <h4 class="text-center text-info mt-2">{{list.name}}</h4>
-    </div>
-    <div>
-      <div class="card text-center">
-        <div class="card-body">
-          <h4 class="card-title">{{list.name}}</h4>
-          <pre class="card-text">Some example text some example text.
-      product description is here</pre>
-          <hr>
-          <h5>${{list.price}}</h5>
-          <h5>{{productId}}</h5>
-          <a class="btn btn-success text-white" [routerLink]="['/MyCart']"> <i class="material-icons">
-            shopping_cart
-          </i></a>
-          <div class="mt-2">
-            <select name="Quatity">
-              <option value="volvo">1</option>
-              <option value="saab">2</option>
-              <option value="fiat">3</option>
-              <option value="audi">4</option>
-            </select>
-          </div>
+<app-nav-bar></app-nav-bar>
+<div class="d-flex justify-content-center my-2 align-items-center">
+  <div class="col-9">
+    <div class="card shadow-lg">
+      <div class="card-body d-flex justify-content-around">
+        <div class="mr-5">
+          <img src="{{item.image}}" alt="{{item.name}}">
         </div>
-        <div class="mt-4 mb-2">
-          <a [routerLink]="['/home']" style="text-decoration: none">Back</a>
+        <div class="d-flex flex-column">
+          <div class="font-weight-bold">{{item.name}}</div>
+          <div>
+            <div>{{item.details}}</div>
+          </div>
+          <div class="mt-5">
+            <div *ngIf="!appService.checkAdmin(); else admin">
+              <button type="button" class="btn" (click)="addToCart(item.productId)">Add To Cart</button>
+            </div>
+            <ng-template #admin>
+              <div class="d-flex">
+                <div class="mr-5">
+                  <button type="button" class="btn" (click)="edit(item.productId)">Edit Product</button>
+                </div>
+                <button type="button" class="btn" (click)="remove(item.productId, item.category)">Remove Product</button>
+              </div>
+            </ng-template>
+          </div>
         </div>
       </div>
     </div>

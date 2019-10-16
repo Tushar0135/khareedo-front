@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {ItemserviceService} from '../itemservice.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HttpService} from '../http.service';
+import {AppService} from '../app.service';
 
 @Component({
   selector: 'app-product-details',
@@ -9,29 +10,53 @@ import {ItemserviceService} from '../itemservice.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  productId;
-  Details;
+  private id;
+  private item: object;
 
-  constructor(private activatedRoute: ActivatedRoute, private service: ItemserviceService) { }
-  // tslint:disable-next-line:max-line-length
-  private list: {name: string, price: number, details: string, image: string, category: string, sub_category: string, active: number, itemDetails: string, productId: number};
-  ngOnInit() {
-    this.service.getdetails().subscribe((data) => {
-      this.Details = data;
-
-      this.activatedRoute.queryParams.subscribe(params => {
-        this.productId = params.id;
-        this.list = this.alldetails(this.productId);
-      });
-    });
+  constructor(private route: ActivatedRoute, private service: HttpService, private appService: AppService, private router: Router) {
   }
-  alldetails(productId) {
-    // tslint:disable-next-line:prefer-for-of
-    for ( let i = 0 ; i < this.Details.length; i++) {
-      // tslint:disable-next-line:triple-equals
-      if (this.Details[i].productId == productId) {
-        return this.Details[i];
+
+  ngOnInit() {
+    this.route.queryParamMap.subscribe((params) => {
+        // tslint:disable-next-line:radix
+        this.id = params.get('id');
+        this.service.getById(this.id).subscribe((data) => {
+          this.item = data;
+          console.log(this.item);
+        });
       }
+    );
+  }
+
+  split(description) {
+    return description.split('\\n');
+  }
+
+  addToCart(id: number) {
+    if (this.appService.checkLogin()) {
+      this.service.addToCart(id).subscribe((data) => {
+        localStorage.setItem('path', '/cart');
+        this.router.navigate(['/cart']);
+      });
+    } else {
+      this.router.navigate(['/login']);
     }
   }
+
+  remove(productId: any, category: any) {
+    this.service.removeItem(productId).subscribe((data) => {
+      this.router.navigate(['/product-list', category]);
+    });
+  }
+
+  edit(productId: any) {
+    this.appService.edit(true);
+    this.router.navigate(['/edit-product'], {
+      relativeTo: this.route,
+      queryParams: {
+        id: productId
+      }
+    });
+  }
 }
+

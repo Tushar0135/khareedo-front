@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, Routes} from '@angular/router';
-import {ItemserviceService} from '../itemservice.service';
-import {AppService} from '../app.service';
+import {HttpService} from '../http.service';
 
 @Component({
   selector: 'app-home-page',
@@ -9,37 +8,35 @@ import {AppService} from '../app.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  category;
-  Names;
-  constructor(private router: Router, private service: AppService, private http: ItemserviceService) { }
+  categories = [
+    {category: 'Electronics'},
+    {category: 'Clothing'},
+    {category: 'Shoes'},
+    {category: 'Books'}
+  ];
+  private category: any;
+  private productList;
+
+  constructor(private httpService: HttpService, private router: Router) {
+  }
+
 
   ngOnInit() {
-    if (!this.service.checklogin()) {
-      this.router.navigate(['userlogin']);
-    }
-    this.http.getdetails().subscribe((data) => {
-      this.Names = data;
+    this.httpService.getAllItemsonHome().subscribe((data) => {
+      this.productList = data;
     });
   }
 
-
-  showcategory(cat) {
-    this.category = cat;
-    // @ts-ignore
-    this.router.navigate(['cat']);
-    this.http.getcategory(cat).subscribe((data3) => {
-      this.Names = data3;
+  sendCategory(category) {
+    this.category = category;
+    localStorage.setItem('category', category.toLowerCase());
+    this.httpService.raiseCategory(category.toLowerCase());
+    this.router.navigate(['/product-list/' + category.toLowerCase()]);
+  }
+  open(id) {
+    this.router.navigate([]).then((result) => {
+      window.open('http://localhost:4200/product-details/?id=' + id, '_blank');
     });
   }
+}
 
-  handleSelectedevent($even, number1, number2) {
-    if (this.category == null) {
-      this.http.getpricebtw(number1 , number2).subscribe((data) => {
-        this.Names = data;
-      });
-    } else {
-      this.http.getpricebtwandcategory(this.category, number1 , number2).subscribe((data) => {
-        this.Names = data;
-      });
-    }
-  }}

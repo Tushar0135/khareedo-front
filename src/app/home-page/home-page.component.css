@@ -1,8 +1,56 @@
-.company-style
-{
-  font-family: 'Pacifico', cursive;
+.carousel-item img {
+  height: auto;
+  width: 100%;
+  position: static;
 }
-.sticky{
-  position: sticky;
-  top: 0
+
+.carousel-caption {
+  color: black;
+  left: 10%;
+  text-align: left;
 }
+
+.carousel-heading {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+img{
+  width: 1rem;
+}
+
+.categories {
+  text-decoration: none;
+  border-bottom: solid 2px white;
+  padding: 0.75rem 1.5rem;
+}
+
+.categories a {
+  color: black;
+  font-weight: 400;
+}
+
+.categories a:hover {
+  color: #ff5d3b;
+}
+
+.category-bar {
+  background: white;
+}
+
+.form-control {
+  width: 45rem;
+  border: none;
+  background: white;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btn {
+  background: white;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  box-shadow: none;
+  color: black;
+}
+

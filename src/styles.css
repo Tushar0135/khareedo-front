@@ -1,31 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
-
-
-
-
-.mainLoginInput::-webkit-input-placeholder {
-  font-family: FontAwesome;
-  font-weight: normal;
-  overflow: visible;
-  vertical-align: top;
-  display: inline-block !important;
-
+.colourchange{
+  background-color: white;
+  color: black!important;
 }
-
-.mainLoginInput::-moz-placeholder  {
-  font-family: FontAwesome;
-  font-weight: normal;
-  overflow: visible;
-  vertical-align: top;
-  display: inline-block !important;
-}
-
-.mainLoginInput:-ms-input-placeholder  {
-  font-family: FontAwesome;
-  font-weight: normal;
-  overflow: visible;
-  vertical-align: top;
-  display: inline-block !important;
-
+.cursor{
+  cursor: pointer;
 }

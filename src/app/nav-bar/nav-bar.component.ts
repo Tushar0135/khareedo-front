@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AppService} from '../app.service';
+import {AuthenticateService} from '../authenticate.service';
+import {HttpService} from '../http.service';
 
 
 @Component({
@@ -9,22 +11,48 @@ import {AppService} from '../app.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
-  constructor(private router: Router, private service: AppService) {
+  private search: any;
+  constructor(private router: Router, private authService: AuthenticateService, private httpService: HttpService,
+              private service: AppService) {
   }
 
   ngOnInit() {
   }
-  logout() {
-    this.service.isLoggedIn(false);
-    this.router.navigate(['userlogin']);
+
+  signOut() {
+    this.authService.signOut().subscribe(data => {
+      this.service.loggingOut();
+      localStorage.removeItem('token');
+      localStorage.removeItem('admin');
+      this.router.navigate(['home']);
+    });
   }
-  mycart() {
-    if (this.service.checklogin()) {
-      this.router.navigate(['/Mycart']);
+
+
+  orders() {
+    if (!this.service.checkLogin()) {
+      localStorage.setItem('path', '/order-history');
+      this.router.navigate(['/login']);
+    } else {
+      this.router.navigate(['/order-history']);
+
     }
   }
 
+  cart() {
+    if (!this.service.checkLogin()) {
+      localStorage.setItem('path', '/cart');
+      this.router.navigate(['/login']);
+    } else {
+      this.router.navigate(['/cart']);
+
+    }
+  }
+
+  addPro() {
+    this.service.edit(false);
+    this.router.navigate(['add-product']);
+  }
+
+
 }
-
-

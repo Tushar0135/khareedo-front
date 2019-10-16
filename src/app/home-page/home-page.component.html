@@ -1,67 +1,68 @@
-<div class="border-bottom  my-0 " style="font-family:cursive ">
-  <ul class="nav nav-pills nav-fill d-flex justify-content-between " style="position: sticky">
-    <li class="nav-item">
-      <a class="nav-link " style="cursor: pointer;color: black"[routerLink]="['/home']"  >HOME</a>
-    </li>
-    <li class="nav-item">
-      <a (click)="showcategory('electronics')" class="nav-link" style="cursor: pointer" >ELECTRONICS</a>
-    </li>
-    <li class="nav-item">
-      <a (click)="showcategory('books')" class="nav-link " style="cursor: pointer" >BOOKS</a>
-    </li>
-    <li class="nav-item">
-      <a (click)="showcategory('shoes')" class="nav-link " style="cursor: pointer">SHOES</a>
-    </li>
-    <li class="nav-item">
-      <a (click)="showcategory('clothing')"class="nav-link " style="cursor: pointer">CLOTHINGS</a>
-    </li>
-  </ul>
-</div>
-<div style="background-color: lightgray">
-  <div class="d-flex">
-    <div class="w-25" style="border-right: 1px black solid">
-      <div class="mt-3 mb-3">
-        <h3 class="company-style text-danger text-center">Filter Items</h3>
-        <div class="card border-danger mt-3 mx-5 ">
-          <div class="card-body">
-            <h4 class="text-dark">PRICE</h4>
-            <div class="radio">
-              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,200,500)">200-500</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,500,1000)">500-1000</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,1000,2000)">1000-2000</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,1500,4000)">1500-4000</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="optradio" (change)="handleSelectedevent($event,0,100000)">0-Maximum</label>
-            </div>
-          </div>
-        </div>
+<app-nav-bar></app-nav-bar>
+<nav class="colourchange navbar align-items-center justify-content-center py-0 category-bar">
+  <div class="d-flex justify-content-around">
+    <div *ngFor="let item of categories" class="categories">
+      <div>
+        <a (click)="sendCategory(item.category)">{{item.category}}</a>
       </div>
     </div>
-    <div class="w-75 m-4 my-2 d-flex flex-wrap">
-      <div *ngFor="let Detail of Names" class="m-2">
-        <div class="card border-dark" style="width:200px;height:320px">
+  </div>
+</nav>
+<div id="demo" class="carousel slide" data-ride="carousel">
 
-          <div class="mt-3 mx-auto">
-            <img height="100px" src="{{Detail.image}}">
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./assets/asset1.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/asset2.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/asset3.jpg">
+      <div class="carousel-caption">
+        <div class="carousel-heading col-3">Up to 50% off home faves</div>
+        <div class="col-3">Welcome fall with big savings on furniture, appliances, &amp; more.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+<div class="col-9 border-left">
+  <div class="d-flex flex-wrap my-3">
+    <div class="d-flex flex-wrap my-3">
+      <div *ngFor="let product of productList" (click)="open(product.productId)">
+        <div class="product-item card m-2  my-pointer">
+          <div class="card-body">
+            <img src="{{product.image}}" alt="{{product.name}}">
           </div>
-          <div class="card-body text-center">
-            <h6 class="card-title">{{Detail.name}}</h6>
-            <hr>
-            <div >${{Detail.price}}</div>
-            <a class="nav-link " style="cursor: pointer;color:black;">ADD TO CART</a>
-            <br>
-            <a style="cursor: pointer"[routerLink]="['/productDetails']" >ViewDetail</a>
+          <div class="card-footer text-center">
+            <div class="product-item">
+              <div class="text-width">
+                {{product.name}}
+              </div>
+              <div>
+                Price: <div class="a-price-symbol"><sup>₹{{product.price|currency:'INR':true: '1.0-1'}}</sup></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

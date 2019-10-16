@@ -1,0 +1,11 @@
+<app-nav-bar></app-nav-bar>
+<div *ngFor="let order of myorders">
+  <div class="card">
+    <div class="card-body">
+      <div><span>Item:</span>{{order.id}}</div>
+      <div><span>Price:</span>{{order.price}}</div>
+      <div><span>Quantity:</span>{{order.quantity}}</div>
+      <div><span>Date:</span>{{order.date|date:'medium'}}</div>
+    </div>
+  </div>
+</div>

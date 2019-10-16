@@ -1,0 +1,13 @@
+.my-cursor {
+  cursor: pointer;
+}
+
+.text-width {
+  width: 186px;
+}
+
+.btn {
+  background-color: #ff5d3b;
+  color: white;
+  width: 10rem;
+}

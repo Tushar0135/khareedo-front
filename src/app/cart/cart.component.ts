@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import {AppService} from '../app.service';
 import {Router} from '@angular/router';
+import {HttpService} from '../http.service';
 
 @Component({
-  selector: 'app-user-cart',
-  templateUrl: './user-cart.component.html',
-  styleUrls: ['./user-cart.component.css']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
 })
-export class UserCartComponent implements OnInit {
+export class CartComponent implements OnInit {
 
-  // tslint:disable-next-line:ban-types
+// tslint:disable-next-line:ban-types
   private items: Object = [];
   private totalPrice;
   private isDisabled: boolean;
 
-  constructor(private appService: AppService, private router: Router) {
+  constructor(private appService: AppService, private router: Router, private service: HttpService) {
   }
 
   ngOnInit() {
@@ -71,8 +72,7 @@ export class UserCartComponent implements OnInit {
   }
 
   redirect(id) {
-    this.router.navigate([]).then((result) => {
-      window.open('http://localhost:4200/product-details/?id=' + id, '_blank');
+    this.router.navigate(['/product-details/?id=' + id]).then((result) => {
     });
   }
 }

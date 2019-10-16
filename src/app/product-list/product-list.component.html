@@ -1,36 +1,63 @@
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-heading">
-      <h2 class="text-center">Login</h2>
+<app-nav-bar></app-nav-bar>
+<nav class="navbar align-items-center justify-content-center py-0 category-bar">
+  <div class="categories">
+    <a routerLink="/home">Home</a>
+  </div>
+  <div *ngFor="let item of categories" class="categories">
+    <div>
+      <a (click)="sendCategory(item.category)">{{item.category}}</a>
     </div>
-    <hr />
-    <div class="modal-body">
-      <form action="" role="form">
-        <div class="form-group">
-          <div class="input-group">
-							<span class="input-group-addon">
-							<span class="glyphicon glyphicon-user"></span>
-							</span>
-            <input type="text" class="form-control" placeholder="User Name" />
+  </div>
+</nav>
+<div class="d-flex">
+  <div class="col-3 my-3">
+    <div class="card">
+      <div class="price-text card-header">Price</div>
+      <div class="card-body pr-2">
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="customRadio1" name="priceFilter"
+                 (click)="selectPriceFilter(500,1000)">
+          <label class="custom-control-label" for="customRadio1">₹500 - ₹1,000</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="customRadio2" name="priceFilter"
+                 (click)="selectPriceFilter(1000,2500)">
+          <label class="custom-control-label" for="customRadio2">₹1,000 - ₹2,500</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="customRadio3" name="priceFilter"
+                 (click)="selectPriceFilter(2500,5000)">
+          <label class="custom-control-label" for="customRadio3">₹2,500 - ₹5,000</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="customRadio4" name="priceFilter"
+                 (click)="selectPriceFilter(5000,500000)">
+          <label class="custom-control-label" for="customRadio4">Over ₹5,000</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-9 border-left">
+    <div class="d-flex flex-wrap my-3">
+      <div class="d-flex flex-wrap my-3">
+        <div *ngFor="let product of productList" (click)="open(product.productId)">
+          <div class="product-item card m-2  my-pointer">
+            <div class="card-body">
+              <img src="{{product.image}}" alt="{{product.name}}">
+            </div>
+            <div class="card-footer text-center">
+              <div class="product-item">
+                <div class="text-width">
+                  {{product.name}}
+                </div>
+                <div>
+                  Price: <div class="a-price-symbol"><sup>₹{{product.price|currency:'INR':true: '1.0-1'}}</sup></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <div class="input-group">
-							<span class="input-group-addon">
-							<span class="glyphicon glyphicon-lock"></span>
-							</span>
-            <input type="password" class="form-control" placeholder="Password" />
-
-          </div>
-
-        </div>
-
-        <div class="form-group text-center">
-          <button type="submit" class="btn btn-success btn-lg">Login</button>
-          <a href="#" class="btn btn-link">forget Password</a>
-        </div>
-
-      </form>
+      </div>
     </div>
   </div>
 </div>

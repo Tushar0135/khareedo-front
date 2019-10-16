@@ -1,0 +1,13 @@
+
+.actions {
+  font-weight: 400;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+.navsize{
+  font-family: 'Pacifico', cursive;
+  font-size: 10px;
+}

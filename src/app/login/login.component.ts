@@ -9,22 +9,35 @@ import {AuthenticateService} from '../authenticate.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  username;
   password;
-  email;
-  constructor(private service: AppService, private router: Router, private authservice: AuthenticateService) { }
+  invalidLogin = false;
+
+  constructor(private router: Router, private service: AppService, private authService: AuthenticateService) {
+  }
 
   ngOnInit() {
-    if (this.service.checklogin()) {
+    if (this.service.checkLogin()) {
       this.router.navigate(['home']);
     }
   }
+
   login() {
-    this.authservice.authenticate(this.email, this.password).subscribe(data => {
-      this.service.isLoggedIn(true);
-      this.router.navigate(['home']);
-    });
-  }
-  logout() {
-    this.service.isLoggedIn(false);
+    this.authService.authenticate(this.username, this.password).subscribe(
+      (data) => {
+        this.service.isLoggedIn(true);
+        this.invalidLogin = false;
+        if (localStorage.getItem('path') === null) {
+          this.router.navigate(['/home']);
+        } else {
+          const path = localStorage.getItem('path');
+          localStorage.removeItem('path');
+          this.router.navigate([path]);
+        }
+      }, (error) => {
+        this.invalidLogin = true;
+      }
+    );
   }
 }
+

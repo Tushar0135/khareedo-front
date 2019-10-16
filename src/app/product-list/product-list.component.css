@@ -1,0 +1,54 @@
+.price-text {
+  font-weight: 600;
+}
+
+.product-item img{
+  width: 186px;
+  height: 185px;
+}
+
+.product-item {
+  font-weight: 500;
+}
+
+.a-price-symbol {
+  color: darkred;
+}
+
+.a-price-whole {
+  color: darkred;
+  font-size: 1.5rem;
+}
+
+.text-width{
+  width: 186px;
+}
+
+.categories {
+  text-decoration: none;
+  border-bottom: solid 2px white;
+  padding: 0.75rem 1.5rem;
+}
+
+.categories a {
+  color: black;
+  font-weight: 400;
+}
+
+.categories a:hover {
+  color: #ff5d3b;
+}
+
+.category-bar {
+  background: white;
+}
+
+.my-pointer{
+  cursor: pointer;
+}
+.card{
+  transition: box-shadow 0.3s;
+}
+.card:hover{
+  box-shadow: 0 0 1rem rgba(0,0,0,0.6);
+}
