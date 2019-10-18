@@ -25,7 +25,7 @@ export class NavBarComponent implements OnInit {
       localStorage.removeItem('token');
       localStorage.removeItem('admin');
       window.alert('Logout Succesfull');
-      this.router.navigate(['home']);
+      this.router.navigate(['/home']);
     });
   }
 

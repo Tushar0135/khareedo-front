@@ -2,8 +2,8 @@
   font-weight: 600;
 }
 .imga img{
-height: 500px;
-  width: 500px;
+height: 520px;
+  width: 520px;
 }
 .hh{
   height: 800px;
@@ -19,6 +19,10 @@ height: 500px;
 .a-price-whole {
   color: darkred;
   font-size: 1.5rem;
+}
+.checked
+{
+  color:yellow;
 }
 
 .text-width{

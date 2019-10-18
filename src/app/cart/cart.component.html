@@ -1,7 +1,6 @@
 <app-nav-bar></app-nav-bar>
-<div class="container-fluid">
-  <div>
-    <div style="border-right: 2px solid lightgrey">
+  <div class="container-fluid row">
+    <div class="col-9">
       <div *ngFor="let cartItem of items">
         <div class="p-5 ">
           <div class="bg-dark">
@@ -9,8 +8,8 @@
               <button type="button" class="close" data-dismiss="alert" (click)="remove(cartItem.item.productId)">&times;
               </button>
               <div class="d-flex">
-                <div>
-                  <img class="img-size my-pointer" src="{{cartItem.item.image}}" alt="{{cartItem.item.name}}"
+                <div class="product-item">
+                  <img class=" my-pointer" src="{{cartItem.item.image}}" alt="{{cartItem.item.name}}"
                        (click)="redirect(cartItem.item.ProductID)">
                 </div>
                 <div class="p-3">
@@ -27,12 +26,12 @@
                     <div class="">
                       <span class=" ml-5">Quantity:</span>
                     </div>
-                    <button type="button" class="btn btn-success ml-4 "
+                    <button type="button" class="btn btn-danger ml-4 "
                             (click)="decrement(cartItem.item.productId, cartItem.quantity)"
                             [disabled]="cartItem.quantity==1">-
                     </button>
                     <div class="border p-2 pl-4 pr-4 ">{{cartItem.quantity}}</div>
-                    <button type="button" class="btn btn-success "
+                    <button type="button" class="btn btn-primary "
                             (click)="increment(cartItem.item.productId)">+
                     </button>
                   </div>
@@ -43,7 +42,7 @@
                         true:'1.1'}}</span>
                   </div>
                   <div class="p-2 pl-4 pr-4 ">
-                    <button class="btn my-button text-white " (click)="remove(cartItem.item.productId)">
+                    <button class="btn btn-danger " (click)="remove(cartItem.item.productId)">
                       Remove From
                       Cart
                     </button>
@@ -54,18 +53,16 @@
           </div>
         </div>
       </div>
-    </div>
-
-</div>
-  <div >
-    <div class="card shadow-lg shadow my-5 position-fixed">
-      <div class="card-header ">
-        <div>Your Order</div>
+      <div class="col-3" >
+        <div class="card shadow-lg shadow my-5">
+          <div class="card-header ">
+            <div>Your Order</div>
+          </div>
+          <div class="card-body ">
+            Total Amount: {{totalPrice|currency:'INR':true:'1.1'}}
+          </div>
+          <button type="button" class="btn btn-outline-primary form-control mt-2" (click)="checkout()">Pay</button>
+        </div>
       </div>
-      <div class="card-body ">
-        Total Amount: {{totalPrice|currency:'INR':true:'1.1'}}
-      </div>
-      <button type="button" class="btn btn-outline-danger form-control mt-2" (click)="checkout()">Pay</button>
     </div>
   </div>
-</div>

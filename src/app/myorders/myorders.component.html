@@ -1,11 +1,41 @@
 <app-nav-bar></app-nav-bar>
-<div *ngFor="let order of myorders">
-  <div class="card">
-    <div class="card-body">
-      <div><span>Item:</span>{{order.id}}</div>
-      <div><span>Price:</span>{{order.price}}</div>
-      <div><span>Quantity:</span>{{order.quantity}}</div>
-      <div><span>Date:</span>{{order.date|date:'medium'}}</div>
-    </div>
+<div class="card container">
+  <div class="card-body">
+    <table class="table table-striped  table-borderless">
+      <thead>
+        <tr>
+          <th>
+              Item Id
+          </th>
+           <th>
+              Price
+           </th>
+            <th>
+              Quantity
+            </th>
+            <th>
+              Date
+            </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of myorders">
+          <td>
+            {{order.id}}
+          </td>
+          <td>
+            {{order.price}}
+          </td>
+          <td>
+            {{order.quantity}}
+          </td>
+          <td>
+            {{order.date|date:'medium'}}
+          </td>
+        </tr>
+    </tbody>
+
+    </table>
   </div>
 </div>

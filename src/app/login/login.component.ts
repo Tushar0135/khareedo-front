@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         this.service.isLoggedIn(true);
         this.invalidLogin = false;
         if (localStorage.getItem('path') === null) {
-          this.router.navigate(['/home']);
+          this.router.navigate(['home']);
           window.alert('Login SuccessFull');
         } else {
           const path = localStorage.getItem('path');

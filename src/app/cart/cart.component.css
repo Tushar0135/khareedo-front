@@ -12,3 +12,8 @@
   width: auto;
   height: 300px;
 }
+
+.checked
+{
+  color:yellow;
+}
