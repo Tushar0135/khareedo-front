@@ -1,22 +1,25 @@
-<div>
-  <div class="heading text-center">
-    <a routerLink="/home"><img src=".\assets\shoppers_stop.png"></a>
+<div class="con colourchange">
+  <div class="conim">
+    <a routerLink="/home"><img src="../../assets/Star-K_logo.jpg" width="150px" height="150px" ></a>
   </div>
-  <div class="d-flex flex-column align-items-center my-3">
+</div>
+<div class="colourchange con"><div class="colourchange conin" style="font-size: 40px;font-family: 'Brush Script Std'"><ng-marquee>Khareedo</ng-marquee></div></div>
+<div class="colourchange">
+  <div class="d-flex flex-column  align-items-center my-3">
     <div class="form-box border">
-      <div class="login-text">Login</div>
+      <div class="text-center" style="font-size: 40px;font-weight: bold;">Login</div>
       <div *ngIf="invalidLogin">
-        <div class="text-danger font-weight-bold">You have entered invalid credentials</div>
+        <div class="text-danger ">You have entered invalid credentials</div>
       </div>
       <form>
         <div class="form-group">
-          <label for="email" class="format-text">Email or username:</label>
-          <input id="email" class="form-control" type="email" [(ngModel)]="username"
+          <label for="email" class="format-text">Email:</label>
+          <input id="email" class="form-control" placeholder="Email" type="email" [(ngModel)]="username"
                  [ngModelOptions]="{standalone: true}" [required]="true">
         </div>
         <div class="form-group">
           <label for="password" class="format-text">Password:</label>
-          <input id="password" class="form-control" type="password" [(ngModel)]="password"
+          <input id="password" class="form-control" type="password" placeholder="Password" [(ngModel)]="password"
                  [ngModelOptions]="{standalone: true}"
                  [required]="true" [minLength]="6">
         </div>
@@ -25,8 +28,8 @@
         </div>
       </form>
     </div>
-    <div class="format-text py-2">
-      New to Shoppers Stop? <a routerLink="/sign-up">Sign Up here</a>
+    <div class=" py-2">
+      <span  style="font-size:30px;font-family: 'Brush Script Std' " > New to Khareedo?</span> <a routerLink="/sign-up" style="text-decoration:none"><span  style="font-size:20px">Sign Up</span></a>
     </div>
   </div>
 </div>

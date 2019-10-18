@@ -22,6 +22,7 @@
 
 .text-width{
   width: 186px;
+  height: 75px;
 }
 
 .categories {
@@ -51,4 +52,8 @@
 }
 .card:hover{
   box-shadow: 0 0 1rem rgba(0,0,0,0.6);
+}
+.checked
+{
+  color:yellow;
 }

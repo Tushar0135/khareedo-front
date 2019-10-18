@@ -1,14 +1,3 @@
-.heading a {
-  color: #FFC107;
-  font-size: 3rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.sign-up-text {
-  font-size: 2rem;
-  padding-bottom: 0.75rem;
-}
 
 .form-box {
   display: inline-block;
@@ -21,14 +10,23 @@ input {
 }
 
 button {
-  background: #3F51B5;
   font-weight: 600;
 }
 
-button:hover {
-  background: #FFA000;
-}
+
 
 .format-text {
   font-weight: 600;
+}
+.con{
+  text-align: center;
+}
+.conim{
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+}
+.conin{
+  width: 320px;
+  display: inline-block;
 }

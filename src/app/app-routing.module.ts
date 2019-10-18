@@ -32,6 +32,3 @@ routes = [
 })
 export class AppRoutingModule {
 }
-
-export const routingComponents = [HomePageComponent, LoginComponent, SignUpComponent, ProductListComponent, ProductDetailsComponent,
-  CartComponent, MyordersComponent, ProfileComponent];

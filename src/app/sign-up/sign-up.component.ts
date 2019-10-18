@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit {
       name: this.name
     }).subscribe(
       data => {
-        this.router.navigate(['login']);
+        this.router.navigate(['/login']);
       });
   }
 }

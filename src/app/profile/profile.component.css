@@ -1,6 +1,3 @@
-.my-border {
-  border-right: 2px solid darkgrey;
-}
 
 .my-pointer {
   cursor: pointer;
@@ -19,6 +16,6 @@ label {
 }
 
 .btn {
-  background: #ff5d3b;
-  color: white;
+  color:black;
+
 }

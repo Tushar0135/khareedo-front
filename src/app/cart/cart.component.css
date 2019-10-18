@@ -1,13 +1,14 @@
-.my-button{
-  background-color: #ff5d3b;
-}
 
-.img-size{
-  height: 12rem;
-  width: 10rem;
-}
 
 .my-pointer{
   cursor: pointer;
 }
 
+.product-item img{
+  width: 186px;
+  height: 185px;
+}
+.wid{
+  width: auto;
+  height: 300px;
+}

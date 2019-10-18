@@ -9,7 +9,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import {AppService} from './app.service';
@@ -19,7 +19,7 @@ import { CartComponent } from './cart/cart.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import {HttpService} from './http.service';
 import {GaurdianService} from './gaurdian.service';
-
+import {NgMarqueeModule} from 'ng-marquee';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,8 @@ import {GaurdianService} from './gaurdian.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgMarqueeModule
   ],
   providers: [ AppService, AuthenticateService, HttpService, GaurdianService],
   bootstrap: [AppComponent],

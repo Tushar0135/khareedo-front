@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, Routes} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpService} from '../http.service';
 
 @Component({
@@ -17,16 +17,14 @@ export class HomePageComponent implements OnInit {
   private category: any;
   private productList;
 
-  constructor(private httpService: HttpService, private router: Router) {
+  constructor(private httpService: HttpService, private router: Router, private route: ActivatedRoute) {
   }
-
 
   ngOnInit() {
     this.httpService.getAllItemsonHome().subscribe((data) => {
       this.productList = data;
     });
   }
-
   sendCategory(category) {
     this.category = category;
     localStorage.setItem('category', category.toLowerCase());
@@ -35,7 +33,7 @@ export class HomePageComponent implements OnInit {
   }
   open(id) {
     this.router.navigate([]).then((result) => {
-      window.open('http://localhost:4200/product-details/?id=' + id, '_blank');
+      window.open('http://localhost:4200/product-details/?id=' + id, '_self');
     });
   }
 }

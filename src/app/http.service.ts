@@ -65,10 +65,6 @@ export class HttpService {
     return this.http.get('http://localhost:8080/cart/total', {headers});
   }
 
-  clearFilter() {
-    return this.getAllItems(localStorage.getItem('category'));
-  }
-
   addToCart(id: number) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + localStorage.getItem('token')});
     return this.http.post('http://localhost:8080/cart/add/?id=' + id, null, {headers});
@@ -114,25 +110,4 @@ export class HttpService {
     const headers = new HttpHeaders({Authorization: 'Basic ' + localStorage.getItem('token')});
     return this.http.put('http://localhost:8080/admin/edit-item/?id=' + id, item, {headers});
   }
-
-  geUsers() {
-    const headers = new HttpHeaders({Authorization: 'Basic ' + localStorage.getItem('token')});
-    return this.http.get('http://localhost:8080/admin/get-users', {headers});
-  }
-
-  deleteUser(userId: any) {
-    const headers = new HttpHeaders({Authorization: 'Basic ' + localStorage.getItem('token')});
-    return this.http.delete('http://localhost:8080/admin/remove-user/?id=' + userId, {headers});
-  }
-
-  getUser(userId) {
-    const headers = new HttpHeaders({Authorization: 'Basic ' + localStorage.getItem('token')});
-    return this.http.get('http://localhost:8080/admin/get-user/?id=' + userId, {headers});
-  }
-
-  editUser(id: any, user) {
-    const headers = new HttpHeaders({Authorization: 'Basic ' + localStorage.getItem('token')});
-    return this.http.put('http://localhost:8080/admin/edit-user/?id=' + id, user, {headers});
-  }
-
 }

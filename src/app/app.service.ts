@@ -44,6 +44,7 @@ export class AppService {
     const edit = localStorage.getItem('edit');
     return JSON.parse(edit);
   }
+
 }
 
 

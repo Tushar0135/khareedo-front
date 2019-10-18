@@ -59,7 +59,7 @@ export class ProductListComponent implements OnInit {
   }
 
   open(id) {
-    this.router.navigate([]).then((result) => {
+    this.router.navigate([]).then(() => {
       window.open('http://localhost:4200/product-details/?id=' + id, '_blank');
     });
   }

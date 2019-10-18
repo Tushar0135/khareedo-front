@@ -1,21 +1,8 @@
 <app-nav-bar></app-nav-bar>
-<div class="d-flex">
-  <div class="col-3">
-    <div class="mt-3 px-4 my-border">
-      <table class="table my-pointer">
-        <tr>
-          <td (click)="edit()">Edit Profile</td>
-        </tr>
-        <tr>
-          <td routerLink="/cart">My Cart</td>
-        </tr>
-        <tr>
-          <td routerLink="/order-history">My Orders</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <div class="col-9">
+<div class="d-flex justify-content-center m-5">
+
+
+  <div>
     <div class="mt-3 px-4">
       <div class="d-flex flex-column align-items-center justify-content-center">
         <div class="form-group">
@@ -34,9 +21,16 @@
                  [disabled]="!isEditable" [value]="profile.password" [(ngModel)]="password">
         </div>
         <div *ngIf="isEditable">
-          <button type="submit" (click)="update()" class="btn">Save</button>
+          <button type="submit" (click)="update()" class="btn btn-outline-primary">Save</button>
         </div>
+          <div class="mt-3 px-4 ">
+            <button class="table my-pointer btn btn-outline-primary" (click)="edit()">Edit Profile
+            </button>
+          </div>
       </div>
     </div>
   </div>
+
+
+
 </div>

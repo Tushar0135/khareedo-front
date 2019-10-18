@@ -48,6 +48,7 @@ export class NewProductComponent implements OnInit {
       image: this.image,
       price: this.price
     }).subscribe(() => {
+      window.alert('Prouct Added Succesfully');
       this.router.navigate(['/product-list', this.category]);
     });
   }
@@ -62,6 +63,7 @@ export class NewProductComponent implements OnInit {
       price: this.price
     }).subscribe((data) => {
       localStorage.removeItem('edit');
+      window.alert('Prouct Updated Succesfully');
       this.router.navigate(['product-details'], {
         queryParams: {
           id: this.id

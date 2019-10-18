@@ -1,13 +1,71 @@
-.my-cursor {
+.price-text {
+  font-weight: 600;
+}
+.imga img{
+height: 500px;
+  width: 500px;
+}
+.hh{
+  height: 800px;
+}
+.product-item {
+  font-weight: 500;
+}
+
+.a-price-symbol {
+  color: darkred;
+}
+
+.a-price-whole {
+  color: darkred;
+  font-size: 1.5rem;
+}
+
+.text-width{
+  width: 500px;
+  height: 300px;
+}
+
+.categories {
+  text-decoration: none;
+  border-bottom: solid 2px white;
+  padding: 0.75rem 1.5rem;
+}
+
+.categories a {
+  color: black;
+  font-weight: 400;
+}
+
+.categories a:hover {
+  color: #ff5d3b;
+}
+
+.category-bar {
+  background: white;
+}
+.imga{
+  width: 520px;
+  height: 520px;
+}
+.my-pointer{
   cursor: pointer;
 }
-
-.text-width {
+.card{
+  transition: box-shadow 0.3s;
+}
+.card:hover{
+  box-shadow: 0 0 1rem rgba(0,0,0,0.6);
+}
+.product-item img{
   width: 186px;
+  height: 185px;
 }
 
-.btn {
-  background-color: #ff5d3b;
-  color: white;
-  width: 10rem;
+.product-item {
+  font-weight: 500;
+}
+.text-width{
+  width: 186px;
+  height: 80px;
 }

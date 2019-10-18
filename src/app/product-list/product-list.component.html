@@ -9,11 +9,11 @@
     </div>
   </div>
 </nav>
-<div class="d-flex">
+<div class="d-flex justify-content-around">
   <div class="col-3 my-3">
-    <div class="card">
-      <div class="price-text card-header">Price</div>
-      <div class="card-body pr-2">
+    <div class="card my-3 ml-4">
+      <div class="price-text  card-header">Price</div>
+      <div class="card-body ">
         <div class="custom-control custom-radio">
           <input type="radio" class="custom-control-input" id="customRadio1" name="priceFilter"
                  (click)="selectPriceFilter(500,1000)">
@@ -37,11 +37,11 @@
       </div>
     </div>
   </div>
-  <div class="col-9 border-left">
+  <div class="col-9">
     <div class="d-flex flex-wrap my-3">
-      <div class="d-flex flex-wrap my-3">
+      <div class="d-flex flex-wrap border-left my-3">
         <div *ngFor="let product of productList" (click)="open(product.productId)">
-          <div class="product-item card m-2  my-pointer">
+          <div class="product-item card ml-4 my-2 my-pointer">
             <div class="card-body">
               <img src="{{product.image}}" alt="{{product.name}}">
             </div>
@@ -51,7 +51,14 @@
                   {{product.name}}
                 </div>
                 <div>
-                  Price: <div class="a-price-symbol"><sup>₹{{product.price|currency:'INR':true: '1.0-1'}}</sup></div>
+                  <h6 class="card-text">Price:&nbsp;<i class="fas fa-rupee-sign"></i> {{product.price}}
+                    &nbsp;<del class="text-muted">{{product.price*2}}</del>
+                    <span class="text-primary">&nbsp;50% Off</span> </h6>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span><br>
                 </div>
               </div>
             </div>

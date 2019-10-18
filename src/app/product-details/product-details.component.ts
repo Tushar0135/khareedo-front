@@ -39,6 +39,7 @@ export class ProductDetailsComponent implements OnInit {
         this.router.navigate(['/cart']);
       });
     } else {
+      window.alert('Please Login');
       this.router.navigate(['/login']);
     }
   }
