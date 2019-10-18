@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<div class="container">
+<div><div class="container">
   <form class="d-flex flex-column justify-content-center align-items-center mt-5">
     <div *ngIf="!appService.checkEdit(); else editText">
       <h3 class="font-weight-bold">Add New Product</h3>
@@ -46,3 +46,5 @@
     </ng-template>
   </form>
 </div>
+</div>
+<app-footer></app-footer>

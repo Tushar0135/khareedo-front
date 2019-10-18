@@ -110,4 +110,10 @@ export class HttpService {
     const headers = new HttpHeaders({Authorization: 'Basic ' + localStorage.getItem('token')});
     return this.http.put('http://localhost:8080/admin/edit-item/?id=' + id, item, {headers});
   }
+  SearchPro(see) {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({token });
+    const url = 'http://localhost:8080/product/search/' + see;
+    return this.http.get(url, {headers});
+  }
 }

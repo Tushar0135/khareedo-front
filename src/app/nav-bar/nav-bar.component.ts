@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AppService} from '../app.service';
 import {AuthenticateService} from '../authenticate.service';
@@ -12,6 +12,13 @@ import {HttpService} from '../http.service';
 })
 export class NavBarComponent implements OnInit {
   private search: any;
+  private see: any;
+  name;
+  category;
+  subcategory;
+  details;
+  private
+
   constructor(private router: Router, private authService: AuthenticateService, private httpService: HttpService,
               private service: AppService) {
   }
@@ -56,4 +63,12 @@ export class NavBarComponent implements OnInit {
   }
 
 
+  searchPro() {
+    this.httpService.SearchPro(this.see).subscribe((data) => {
+      this.name = data.nam;
+      this.category = data;
+      this.subcategory = data;
+      this.details = data;
+    });
+  }
 }

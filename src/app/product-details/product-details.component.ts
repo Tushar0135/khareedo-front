@@ -36,6 +36,7 @@ export class ProductDetailsComponent implements OnInit {
     if (this.appService.checkLogin()) {
       this.service.addToCart(id).subscribe((data) => {
         localStorage.setItem('path', '/cart');
+        window.alert('Product Sent To Cart');
         this.router.navigate(['/cart']);
       });
     } else {
@@ -46,6 +47,7 @@ export class ProductDetailsComponent implements OnInit {
 
   remove(productId: any, category: any) {
     this.service.removeItem(productId).subscribe((data) => {
+      window.alert('Product Removed');
       this.router.navigate(['/product-list', category]);
     });
   }

@@ -39,6 +39,7 @@ export class ProfileComponent implements OnInit {
     }).subscribe((data) => {
       this.profile = data;
       this.isEditable = false;
+      window.alert('Profile Updated');
     });
   }
 }

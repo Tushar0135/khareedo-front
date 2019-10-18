@@ -20,6 +20,7 @@ import { MyordersComponent } from './myorders/myorders.component';
 import {HttpService} from './http.service';
 import {GaurdianService} from './gaurdian.service';
 import {NgMarqueeModule} from 'ng-marquee';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import {NgMarqueeModule} from 'ng-marquee';
     NewProductComponent,
     CartComponent,
     MyordersComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

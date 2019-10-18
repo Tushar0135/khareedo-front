@@ -14,7 +14,6 @@ export class ProductListComponent implements OnInit {
   private category: string;
   private lower: number;
   private higher: number;
-
   categories = [
     {category: 'Electronics'},
     {category: 'Clothing'},
